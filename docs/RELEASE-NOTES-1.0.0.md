@@ -2,6 +2,10 @@
 
 The first public Windows x64 release of Ember Server Studio: a free, local-first Minecraft Java server manager with seven server types, managed Java, a built-in console, Modrinth integration, backups and optional user-owned VPS tunnels.
 
+**[Watch or download the 35-second presentation (MP4)](https://github.com/Scotch13/Ember-Server-Studio/releases/download/v1.0.0/Ember-Presentation-English.mp4)** · English · 1080p · No audio · [Captions (SRT)](https://github.com/Scotch13/Ember-Server-Studio/releases/download/v1.0.0/Ember-Presentation-English.srt)
+
+The video uses actual app screens and isolated demo profiles. See the [animated preview in the README](https://github.com/Scotch13/Ember-Server-Studio#see-ember-in-action). Personal tunnels remain experimental and require setup on your own VPS.
+
 ## Download
 
 Download **`Ember-Server-Studio-1.0.0-windows-x64.zip`** and **`SHA256SUMS.txt`** from the assets below. The automatically generated “Source code” archives are for developers, not a ready-to-run app.

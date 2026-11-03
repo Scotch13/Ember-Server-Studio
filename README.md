@@ -6,6 +6,14 @@
   <p><a href="https://github.com/Scotch13/Ember-Server-Studio/releases">Download for Windows</a> · <a href="docs/USER-GUIDE.md">User guide</a> · <a href="docs/TUNNELS.md">Set up a tunnel</a> · <a href="docs/BUILDING.md">Build from source</a></p>
 </div>
 
+## See Ember in action
+
+[![Ember Server Studio — animated product preview. Click for the full 35-second presentation.](docs/media/ember-preview.gif)](https://github.com/Scotch13/Ember-Server-Studio/releases/download/v1.0.0/Ember-Presentation-English.mp4)
+
+**[Watch or download the full presentation (MP4)](https://github.com/Scotch13/Ember-Server-Studio/releases/download/v1.0.0/Ember-Presentation-English.mp4)** · 35 seconds · English · 1080p · No audio
+
+The animated preview uses actual Ember screens with isolated demo profiles, not personal server data. Personal VPS tunnels are experimental and require your own VPS and setup. [English captions (SRT)](https://github.com/Scotch13/Ember-Server-Studio/releases/download/v1.0.0/Ember-Presentation-English.srt) are also available.
+
 ## What is Ember?
 
 Ember runs Minecraft servers **on your computer** and brings the usual management tasks into one desktop app. No terminal is needed for everyday use, and no Ember account is required.

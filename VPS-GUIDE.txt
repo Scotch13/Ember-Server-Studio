@@ -1,0 +1,72 @@
+EMBER SERVER STUDIO — PERSONAL VPS TUNNEL GUIDE
+
+Full English guide, commands, service setup and troubleshooting:
+https://github.com/Scotch13/Ember-Server-Studio/blob/main/docs/TUNNELS.md
+
+Ember connects directly to YOUR VPS. It does not operate a hosted relay,
+create an account, purchase a VPS, SSH into it or administer it remotely.
+Friends connect directly from Minecraft Java using public-host:public-port.
+They do not need a tunnel client. TCP only; UDP voice chat is not forwarded.
+
+1. Install official frps 0.71.1 on your Linux VPS, matching its architecture.
+   Download: https://github.com/fatedier/frp/releases/tag/v0.71.1
+   Verify the exact asset's official SHA-256 before installing it.
+   Linux amd64 archive only (NOT arm64):
+   frp_0.71.1_linux_amd64.tar.gz
+   1d9875210972a5d1a62b2dc4c48df45ab0af05d3ca1b5e494a014428259df803
+
+2. Create a TLS certificate with a SAN matching your VPS DNS name or IP.
+   Keep the private key on the VPS. Transfer ONLY its public certificate
+   or public CA PEM to the Ember PC through a trusted channel.
+   Use /etc/frp/server.crt and /etc/frp/server.key on the VPS.
+   See the full guide for OpenSSL commands, permissions and certificate renewal.
+
+3. In Ember > VPS and tunnels enter the VPS host (no URL/port), FRP control
+   port (example 7000), public Minecraft host, TLS certificate name and a strong
+   matching token. Import the public PEM and Save VPS. Never import private keys.
+   Tokens are Windows-account protected, not portable credential backups.
+
+4. Open each Minecraft server's Tunnel tab, choose a distinct public port
+   (1024-65535, not the control port), enable the tunnel and save/confirm.
+   Offline servers remain waiting; nothing starts Minecraft automatically.
+
+5. Back in VPS and tunnels, Export frps.toml. This file CONTAINS A SECRET TOKEN
+   IN PLAINTEXT. Do not publish it, commit it to GitHub or send it to players.
+   Copy it securely to /etc/frp/frps.toml on the VPS. The export allowlist includes
+   enabled public ports; update it whenever you add/change ports.
+
+6. Run frps as a dedicated NON-ROOT user with limited read access to the config
+   and TLS private key. Verify the file with:
+   /usr/local/bin/frps verify -c /etc/frp/frps.toml
+   The full guide provides a hardened systemd unit and file-permission commands.
+   No web administration port is needed or enabled by the template.
+
+7. In BOTH the VPS OS firewall and provider firewall allow only the control
+   TCP port and selected public game TCP ports. Preserve SSH access.
+   Restrict the control port to your home public IP when feasible.
+   Do not disable firewalls. No home router port forwarding is needed.
+
+8. Save settings and Verify TLS in Ember. This checks TLS ONLY, not the token
+   or public Minecraft reachability. Start Minecraft, wait for Online and then
+   Tunnel active. Ask a friend on another network to test the public address.
+   An address being displayed does not mean the tunnel is ready.
+
+SAFETY
+- Keep Minecraft authentication enabled and use a whitelist and off-site backups.
+- Your PC, Ember, Minecraft and VPS must stay running and connected.
+- VPS hosting/bandwidth, firewall maintenance and TLS renewal are YOUR responsibility.
+- TLS protects PC-to-VPS traffic; the VPS terminates it and can observe forwarding.
+- This is not DDoS protection or a guarantee of anonymity/uptime.
+- Disable tunnels before changing VPS settings. Replicate changes on the VPS manually.
+- Review tunnel logs and frps logs; redact personal information before sharing.
+- Never disable antivirus or add broad exclusions to make tunneling software run.
+
+TESTING STATUS
+Personal tunnels are experimental: unit/UI tests, real TLS checks and official
+client config validation passed locally. Windows antivirus blocked the local
+frps test relay. No bypass was applied. Full production VPS forwarding is not yet
+verified; test your own deployment from another network before relying on it.
+
+Official bundled client: FRP 0.71.1 Windows x64, Apache-2.0.
+Upstream: https://github.com/fatedier/frp
+License: assets/frp/LICENSE.txt

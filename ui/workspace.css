@@ -1,0 +1,22 @@
+.ws-check { display:flex; align-items:center; gap:10px; margin:16px 0; line-height:1.7; }
+.ws-check input { flex-shrink:0; }
+.ws-import-dialog { width:min(800px,100%); }
+.ws-player,.ws-update { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:9px 0; border-bottom:1px solid var(--border); }
+.ws-update small { display:block; margin-top:5px; }
+.ws-updates { display:flex; flex-direction:column; align-items:stretch; margin-top:20px; padding-top:16px; border-top:1px solid var(--border); }
+.ws-updates > [data-workspace="updates"] { align-self:flex-end; }
+#mod-updates-result:not(:empty) { margin-top:12px; }
+.ws-updates-empty { margin:0; text-align:right; }
+.ws-finding pre { white-space:pre-wrap; overflow-wrap:anywhere; font:11px/1.7 Consolas,monospace; }
+#player-management { display:grid; gap:15px; margin:20px 0; }
+#player-management .field input,.ws-import-dialog .field input,#automation-panel .field input { width:100%; }
+#automation-panel .ws-check input,.ws-import-dialog .ws-check input { width:auto; }
+.tabs { flex-wrap:wrap; }
+.page-heading:has(> .servers-heading-actions) { flex-wrap:wrap; }
+.servers-heading-actions { display:flex; align-items:center; justify-content:flex-end; gap:12px; margin-left:auto; max-width:100%; }
+.servers-heading-actions > .button { white-space:nowrap; min-height:44px; }
+.servers-heading-actions .search { width:300px; max-width:100%; }
+@media(max-width:1100px) {
+  .servers-heading-actions { width:100%; }
+  .servers-heading-actions .search { flex:1; width:auto; }
+}

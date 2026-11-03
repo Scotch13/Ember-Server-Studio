@@ -1,0 +1,20 @@
+/* Riserva lo spazio della scrollbar anche quando il dialogo blocca lo
+   scorrimento: la pagina sottostante non si sposta lateralmente. */
+html { scrollbar-gutter: stable; }
+
+/* Tutte le descrizioni occupano la stessa cella: l'altezza resta quella
+   della più lunga e i campi non saltano al cambio del software. */
+.type-description { display: grid; }
+.type-description-item {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .16s ease, visibility .16s ease;
+}
+.type-description-item.active { visibility: visible; opacity: 1; pointer-events: auto; }
+.type-option {
+  transition: background .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.modal-layer.is-closing { cursor: default; }
+.modal-layer.is-closing .modal { pointer-events: none; }

@@ -1,0 +1,47 @@
+/* Adapted menu treatment: HetPatel69 / Uiverse nervous-treefrog-70 (MIT).
+   Red selection rail, icons and soft hover; no blur on readable text. */
+.ember-select { position:relative; width:100%; min-width:0; }
+.ember-native-select { position:absolute!important; width:1px!important; height:1px!important; margin:0!important; padding:0!important; opacity:0!important; pointer-events:none!important; overflow:hidden; clip-path:inset(50%); }
+.ember-select-trigger { width:100%; min-height:42px; padding:10px 12px; display:flex; align-items:center; justify-content:space-between; gap:12px; border:1px solid #ffffff18; border-radius:8px; background:#100d15; color:#e2d5ed; text-align:left; font-size:12px; }
+.ember-select-trigger:hover:not(:disabled) { background:#211827; border-color:#ed6c895c; }
+.ember-select-trigger[aria-expanded="true"] { border-color:#ee6e8b; box-shadow:0 0 0 3px #ee6e8b12; }
+.ember-select-caption { overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.ember-select-arrow { display:flex; flex-shrink:0; color:#c49aae; transition:transform .18s ease; }
+.ember-select-arrow svg { width:15px; height:15px; }
+.ember-select-trigger[aria-expanded="true"] .ember-select-arrow { transform:rotate(180deg); }
+.ember-select-menu { position:fixed; z-index:60; padding:7px; border:1px solid #8d5d7a66; border-radius:11px; background:#16111c; box-shadow:0 14px 45px #0007; display:flex; flex-direction:column; overflow:hidden; color:#e7d8f1; }
+.ember-select-options { min-height:0; overflow:auto; padding:2px 4px 2px 7px; overscroll-behavior:contain; }
+.ember-select-option { position:relative; display:flex; align-items:center; gap:10px; padding:10px 11px; border-radius:6px; cursor:pointer; font-size:12px; line-height:1.5; transition:background .14s ease,color .14s ease,transform .14s ease; }
+.ember-select-option > span:last-child { overflow-wrap:anywhere; }
+.ember-select-option::before { content:''; position:absolute; top:7px; bottom:7px; left:-6px; width:3px; border-radius:4px; background:#fb647e; opacity:0; transition:opacity .14s; }
+.ember-select-option.is-highlighted { background:#392336; color:#fff; }
+.ember-select-option.is-selected { background:#e7527717; color:#ffabc0; }
+.ember-select-option.is-highlighted::before,.ember-select-option.is-selected::before { opacity:1; }
+.ember-select-option.is-disabled { opacity:.5; cursor:not-allowed; }
+.ember-select-mark { width:17px; height:17px; display:grid; place-items:center; flex-shrink:0; color:#de839f; }
+.ember-select-mark svg { width:15px; height:15px; }
+.ember-option-dot { width:6px; height:6px; border:1px solid #a084ad; border-radius:50%; }
+.ember-select-search { padding:5px 8px 11px; margin-bottom:5px; border-bottom:1px solid #ffffff12; display:flex; align-items:center; gap:8px; color:#bf9ad0; }
+.ember-select-search svg { width:15px; height:15px; }
+.ember-select-search input { width:100%; min-width:0; background:none; border:0; outline:0; padding:5px 0; color:inherit; font:inherit; font-size:12px; }
+.ember-select-search input::placeholder { color:#b7a0c5; }
+.ember-select-empty { padding:20px 10px; color:#b7a0c5; font-size:12px; text-align:center; }
+.inline-form .ember-select { flex:0 1 160px; }
+.inline-form .ember-select-trigger { min-height:34px; font-size:11px; padding:7px 10px; }
+.language-panel { margin-bottom:23px; }
+.language-panel .field { max-width:360px; }
+.nav { line-height:1.5; }
+.guide-card,.panel,.field { min-width:0; }
+.guide-card p,.guide-card li,.field small { overflow-wrap:anywhere; }
+html[data-theme="light"] .ember-select-trigger { background:#fff; border-color:#d8c7e0; color:#40294e; }
+html[data-theme="light"] .ember-select-trigger:hover:not(:disabled) { background:#fcf4f9; border-color:#c37a96; }
+html[data-theme="light"] .ember-select-trigger[aria-expanded="true"] { border-color:#ad3258; }
+html[data-theme="light"] .ember-select-arrow { color:#9a466e; }
+html[data-theme="light"] .ember-select-menu { background:#fffaff; border-color:#cfb1da; box-shadow:0 14px 45px #41204d26; color:#45304f; }
+html[data-theme="light"] .ember-select-option.is-highlighted { background:#f1e2f1; color:#44244e; }
+html[data-theme="light"] .ember-select-option.is-selected { background:#fbe5ee; color:#922547; }
+html[data-theme="light"] .ember-select-option::before { background:#b52b51; }
+html[data-theme="light"] .ember-select-mark { color:#ac3057; }
+html[data-theme="light"] .ember-option-dot { border-color:#a182af; }
+html[data-theme="light"] .ember-select-search { border-color:#d9c8e2; color:#64416e; }
+html[data-theme="light"] .ember-select-search input::placeholder,html[data-theme="light"] .ember-select-empty { color:#765e82; }

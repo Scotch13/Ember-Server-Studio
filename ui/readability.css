@@ -1,0 +1,172 @@
+/* Contrasto del testo: conserva i fondi scuri, senza bagliori o ombre
+   che renderebbero meno nitidi i caratteri piccoli. */
+:root {
+  --text-secondary: #c7bdcf;
+  --text-muted: #b5a8c1;
+  --text-subtle: #a99bb6;
+  --text-accent: #ff9caf;
+  --muted: var(--text-secondary);
+}
+
+.nav,
+.quick-server,
+.local-badge > div,
+.local-chip,
+.breadcrumb strong,
+.server-meta,
+.card-metrics,
+.panel p,
+.guide-card p,
+.guide-card li,
+.guide-hero p,
+.stat-top,
+.field > label,
+.key-value span,
+.toggle-row p,
+.type-description,
+.console-actions label,
+.eula-check {
+  color: var(--text-secondary);
+}
+
+.brand > div > span,
+.workspace-label,
+.sidebar-heading,
+.quick-servers > p,
+.local-badge small,
+.heading-extra,
+.breadcrumb,
+.stat-bottom,
+.stat-value small,
+.server-address,
+.new-server-card small,
+.bottom-note,
+.hint,
+.field small,
+.range-labels,
+.type-option small,
+.template-row small,
+.step-mini p,
+.empty-inline,
+.empty-panel p,
+.file-row small,
+.address-box small,
+.wizard-step,
+.modal-header p,
+.modal-footer > span,
+.loading,
+.search svg,
+.icon-button,
+.filter,
+.tab {
+  color: var(--text-muted);
+}
+
+.sidebar-footer,
+.statusbar,
+.console-empty,
+.console-line .log-time,
+.search input::placeholder,
+.field input::placeholder,
+.command-form input::placeholder {
+  color: var(--text-subtle);
+}
+
+.hero p { color: #d8b9c8; }
+.hero-tag { color: #f0b4c2; }
+.hero .button.ghost { color: #f0c7d5; }
+.guide-hero p { color: #d1bedb; }
+.type-option strong,
+.key-value strong,
+.toggle-row strong { color: #e3d8ec; }
+.console-lines { color: #d0c4dd; }
+.console-title { color: #e0cce9; }
+.console-line.error { color: #ff9eb3; }
+.console-line.success { color: #a2e6bf; }
+.status-pill { color: #c4b5d1; }
+.status-pill.online { color: #a2e6bf; }
+.status-pill.installing,
+.status-pill.starting,
+.status-pill.stopping { color: #f5cd95; }
+.notice { color: #e0c49f; }
+.notice.info { color: #d4bfe8; }
+.notice.error { color: #ffb0c2; }
+.button.link,
+.text-link,
+.eula-check a,
+.notice a,
+.eyebrow,
+.guide-card .tag { color: var(--text-accent); }
+.filter.active { color: #f2eaf8; }
+.tab.active { color: #ff9caf; }
+.wizard-step.active { color: #ffb0c5; }
+.wizard-step.done { color: #dec0d6; }
+.card-metrics svg,
+.template-row > i,
+.sidebar-footer .made > span { color: #bc94ae; }
+.counter,
+.section-title h2 .counter { color: #d0bbdf; }
+.file-row .file-size { color: #d0bbdf; }
+.nav.active { color: #ff96a6; }
+.new-server-card { color: #d9b6c9; }
+.guide-card code { color: #ead7f6; }
+
+/* Un piccolo aumento delle dimensioni aiuta più della sola luminosità. */
+.hint,
+.field small,
+.stat-bottom,
+.server-address,
+.card-metrics,
+.new-server-card small,
+.bottom-note,
+.type-option small,
+.template-row small,
+.toggle-row p,
+.file-row small,
+.empty-inline,
+.address-box small,
+.modal-footer > span,
+.console-actions label,
+.range-labels,
+.card-footer .button {
+  font-size: 11px;
+}
+.type-option small,
+.field small,
+.hint { line-height: 1.8; }
+.hero-tag,
+.workspace-label,
+.sidebar-heading,
+.local-badge small,
+.sidebar-footer,
+.statusbar,
+.guide-card .tag { font-size: 10px; }
+.workspace-label { letter-spacing: .8px; margin-inline: 8px; }
+.workspace-label > span { font-size: 9px; }
+.sidebar-footer { padding-inline: 4px; letter-spacing: .2px; gap: 5px; }
+.sidebar-footer .made { font-size: 8px; }
+.statusbar > span:last-child { font-size: 9px; letter-spacing: .45px; }
+.modal-header .eyebrow { font-size: 10px; }
+.wizard-error { color: #ffb0c2; }
+.search input { font-size: 12px; }
+.command-form input { color: #e0d3eb; font-size: 12px; }
+.command-form > span { color: #ff9caf; }
+button:disabled { opacity: .65; }
+
+/* Il margine generico di .panel p non deve allineare a sinistra il
+   paragrafo a larghezza limitata degli stati vuoti Mod/Plugin e Backup. */
+#file-list .empty-panel p,
+#backup-list .empty-panel p {
+  width: 100%;
+  max-width: 560px;
+  margin: 8px auto 20px;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .workspace-label { font-size: 9px; letter-spacing: .25px; margin-inline: 5px; }
+  .workspace-label > span { font-size: 8px; }
+  .sidebar-footer { font-size: 9px; }
+  .sidebar-footer .made { font-size: 7px; }
+  .statusbar > span:last-child { font-size: 8px; }
+}

@@ -1,0 +1,67 @@
+/* One shared treatment for text entry, search, numeric fields and select controls.
+   Composite fields own their border so icons/buttons never create double frames. */
+:root {
+  --entry-background:#ffffff08;
+  --entry-border:#a783a166;
+  --entry-text:#eae2f1;
+  --entry-muted:#b6a9bf;
+  --entry-icon:#c1adc9;
+  --entry-shadow:0 2px 10px #00000012;
+  --entry-focus:0 0 0 3px #ff4a5e20;
+}
+html[data-theme="light"] {
+  --entry-background:#fff;
+  --entry-border:#b29bbf;
+  --entry-text:#3b2948;
+  --entry-muted:#70567e;
+  --entry-icon:#70567e;
+}
+:is(#content,#modal-layer,.ember-dialog,.ember-select-menu) :is(
+  input:not(:where([type="checkbox"],[type="radio"],[type="range"],[type="file"],[type="hidden"],[type="button"],[type="submit"],[type="reset"],[type="color"],[type="image"])),
+  textarea,select:not(.ember-native-select),.ember-select-trigger,.search,.ember-select-search,.command-form
+) {
+  min-height:44px;
+  border:1px solid var(--entry-border);
+  border-radius:8px;
+  background:var(--entry-background);
+  color:var(--entry-text);
+  box-shadow:var(--entry-shadow);
+  font-size:14px;
+  outline:none;
+  transition:border-color .18s,box-shadow .18s;
+}
+:is(#content,#modal-layer,.ember-dialog,.ember-select-menu) :is(
+  input:not(:where([type="checkbox"],[type="radio"],[type="range"],[type="file"],[type="hidden"],[type="button"],[type="submit"],[type="reset"],[type="color"],[type="image"])),
+  textarea,select:not(.ember-native-select),.ember-select-trigger
+) { padding:12px; min-width:0; }
+:is(#content,#modal-layer,.ember-dialog,.ember-select-menu) :is(input,textarea)::placeholder { color:var(--entry-muted); opacity:1; }
+:is(#content,#modal-layer,.ember-dialog,.ember-select-menu) :is(input:not(:where([type="checkbox"],[type="radio"],[type="range"],[type="file"],[type="hidden"],[type="button"],[type="submit"],[type="reset"],[type="color"],[type="image"])),textarea,select,.ember-select-trigger):focus,
+:is(#content,#modal-layer,.ember-dialog,.ember-select-menu) :is(.search,.ember-select-search,.command-form):focus-within,
+:is(#content,#modal-layer,.ember-dialog,.ember-select-menu) .ember-select-trigger[aria-expanded="true"] {
+  border-color:var(--red);
+  box-shadow:var(--entry-focus);
+}
+:is(#content,#modal-layer,.ember-dialog,.ember-select-menu) :is(.search,.ember-select-search,.command-form) { padding:0 12px; }
+:is(#content,#modal-layer,.ember-dialog,.ember-select-menu) :is(.search,.ember-select-search,.command-form) input {
+  flex:1;
+  width:100%;
+  min-width:0;
+  min-height:42px;
+  padding:12px 0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:var(--entry-text);
+}
+:is(#content,#modal-layer,.ember-dialog,.ember-select-menu) :is(.search,.ember-select-search,.command-form) input:focus {
+  border:0;
+  outline:none;
+  box-shadow:none;
+}
+:is(#content,#modal-layer,.ember-dialog,.ember-select-menu) :is(.search,.ember-select-search) svg { width:19px; height:19px; color:var(--entry-icon); }
+:is(#content,#modal-layer,.ember-dialog,.ember-select-menu) textarea { line-height:1.6; resize:vertical; }
+:is(#content,#modal-layer,.ember-dialog,.ember-select-menu) :is(input,textarea,select):disabled { opacity:.55; cursor:not-allowed; }
+@media(prefers-reduced-motion:reduce) {
+  :is(#content,#modal-layer,.ember-dialog,.ember-select-menu) :is(input,textarea,select,.ember-select-trigger,.search,.ember-select-search,.command-form) { transition:none; }
+}

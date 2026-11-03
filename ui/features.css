@@ -1,0 +1,53 @@
+.ember-dialog-layer { position:fixed; inset:0; z-index:1000; background:#08060bb8; backdrop-filter:blur(7px); display:grid; place-items:center; padding:30px; }
+.ember-dialog { width:min(560px,100%); max-height:85vh; overflow:auto; box-shadow:0 25px 100px #0007; animation:fileSelectionIn .16s ease-out; }
+.ember-dialog p { white-space:pre-wrap; overflow-wrap:anywhere; }
+.ember-dialog .button-group { justify-content:flex-end; margin-top:25px; }
+.ember-dialog:has(.button-group > :nth-child(4)) .button-group { flex-direction:column; align-items:stretch; }
+.ember-dialog .button { white-space:normal; overflow-wrap:anywhere; }
+.modrinth-origin { color:#7dd6a2; display:block; }
+html[data-theme="light"] .modrinth-origin { color:#256443; }
+.ram-chart { width:100%; height:150px; display:block; margin:16px 0; }
+.ram-chart path { fill:none; stroke:#ef7195; stroke-width:2.5; stroke-linejoin:round; }
+.ram-chart circle { fill:#ef7195; stroke:none; }
+.ram-chart line { stroke:var(--border); }
+.ram-stat { position:relative; overflow:hidden; }
+.ram-stat .stat-value,.ram-stat .stat-bottom { position:relative; z-index:1; width:52%; }
+.ram-mini { position:absolute; right:16px; bottom:18px; width:44%; pointer-events:none; }
+.ram-mini .ram-chart { height:45px; margin:0 0 7px; overflow:visible; }
+.ram-mini .ram-chart path { vector-effect:non-scaling-stroke; stroke-width:1.5; }
+.ram-mini small { display:block; text-align:right; color:#d3a6b7; font-size:10px; line-height:1.4; }
+html[data-theme="light"] .ram-mini small { color:#803653; }
+.modrinth-card-heading { display:flex; align-items:center; gap:14px; }
+.modrinth-card-heading h3 { margin:0; overflow-wrap:anywhere; }
+.mod-image { width:58px; height:58px; border-radius:13px; flex-shrink:0; position:relative; overflow:hidden; display:grid; place-items:center; background:linear-gradient(135deg,#543044,#242036); color:#ffc9df; font-size:24px; font-weight:650; border:1px solid #be6c8b33; }
+.mod-image img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:var(--panel); }
+.mod-file-row .mod-image { width:38px; height:38px; border-radius:9px; font-size:18px; }
+html[data-theme="light"] .mod-image { background:linear-gradient(135deg,#f8e1ed,#eae3f8); color:#913c60; }
+.modrinth-search { display:flex; gap:12px; margin:20px 0; }
+.modrinth-search input { flex:1; }
+.modrinth-search { align-items:center; flex-wrap:wrap; }
+.modrinth-search > input { min-width:190px; background:#0f0d14; color:inherit; border:1px solid #ffffff1c; border-radius:9px; padding:12px 14px; outline:none; }
+.modrinth-search > input:focus { border-color:#ed638a; box-shadow:0 0 0 3px #ed638a15; }
+.modrinth-search .ember-select { flex:1; min-width:220px; }
+#modrinth-pages { margin-top:20px; }
+html[data-theme="light"] .modrinth-search > input { background:#fff; border-color:#d7c1df; color:#302035; }
+.modrinth-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:18px; }
+.modrinth-card { display:flex; flex-direction:column; gap:10px; }
+.modrinth-card p { flex:1; overflow-wrap:anywhere; }
+.modrinth-destinations { display:flex; flex-direction:column; gap:12px; margin-top:20px; }
+.modrinth-destinations .button { justify-content:space-between; white-space:normal; }
+html[data-theme="light"] .ember-dialog-layer { background:#49334f66; }
+.mod-add-dialog { width:min(850px,100%); }
+.mod-add-sheet { display:grid; grid-template-columns:1.1fr 1fr; gap:30px; margin-top:24px; }
+.mod-add-info { padding-right:30px; border-right:1px solid var(--border); min-width:0; }
+.mod-add-info > .mod-image { width:100px; height:100px; border-radius:20px; margin-bottom:18px; font-size:38px; }
+.mod-add-info h3 { font-size:23px; margin:0 0 8px; overflow-wrap:anywhere; }
+.mod-add-info > small { color:var(--muted); }
+.mod-add-info p { line-height:1.85; font-size:13px; }
+.mod-add-controls { min-width:0; display:flex; flex-direction:column; justify-content:center; }
+.mod-add-controls .button-group { margin-top:20px; flex-wrap:wrap; }
+.mod-add-controls > p { font-size:12px; line-height:1.8; }
+.mod-version-field { margin-top:18px; }
+#mod-version-status { display:block; line-height:1.7; margin-top:8px; overflow-wrap:anywhere; }
+#mod-version-retry { margin-top:8px; }
+@media(max-width:750px) { .mod-add-sheet { grid-template-columns:1fr; gap:20px; } .mod-add-info { border-right:0; border-bottom:1px solid var(--border); padding:0 0 14px; } }

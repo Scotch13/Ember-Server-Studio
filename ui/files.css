@@ -1,0 +1,42 @@
+.file-list-tools { display:flex; align-items:center; justify-content:space-between; gap:15px; padding:3px 2px 14px; font-size:11px; color:var(--text-muted); }
+.file-select-all { display:inline-flex; align-items:center; gap:9px; cursor:pointer; color:var(--text-secondary); }
+.file-checkbox,.file-select-all input { width:16px; height:16px; margin:0; flex-shrink:0; cursor:pointer; }
+.mod-file-row { padding:14px 12px; border-radius:8px; cursor:pointer; gap:13px; transition:background .16s ease,box-shadow .16s ease; }
+.mod-file-row:hover { background:#ffffff04; }
+.mod-file-row.is-selected { background:#ed537916; box-shadow:inset 3px 0 0 #f96d88; }
+.mod-file-row .file-copy strong { line-height:1.65; }
+.mod-file-row .status-pill { flex-shrink:0; }
+.file-selection-bar { position:sticky; bottom:16px; z-index:3; margin-top:18px; padding:14px 17px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; border:1px solid #e878974d; border-radius:11px; background:#251925f5; backdrop-filter:blur(14px); box-shadow:0 8px 30px #0004; animation:fileSelectionIn .16s ease-out; }
+.file-selection-info { display:flex; align-items:center; gap:9px; color:#f0c9d9; font-size:12px; }
+.file-selection-info > i { color:#fb8ca8; }
+.file-selection-info strong { font-weight:550; }
+.file-selection-warning { flex-basis:100%; color:#eac592; font-size:11px; line-height:1.8; }
+#file-action-hint { margin-top:14px; }
+body:has(#file-selection-bar:not(.hidden)) .toasts { bottom:150px; }
+html[data-theme="light"] .mod-file-row:hover { background:#6d336108; }
+html[data-theme="light"] .mod-file-row.is-selected { background:#fbe7ef; box-shadow:inset 3px 0 0 #b72a50; }
+html[data-theme="light"] .file-selection-bar { background:#fff7fcf5; border-color:#dba2ba; box-shadow:0 8px 30px #54304c18; }
+html[data-theme="light"] .file-selection-info { color:#74304e; }
+html[data-theme="light"] .file-selection-info > i { color:#a92048; }
+html[data-theme="light"] .file-selection-warning { color:#7c5426; }
+@keyframes fileSelectionIn { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:translateY(0); } }
+@media(max-width:1200px) { .file-selection-bar { padding:12px; } .mod-file-row { gap:9px; padding-inline:9px; } }
+.file-drop-hint { margin:-5px 0 16px; }
+#file-list { min-height:210px; }
+.file-drop-zone { position:fixed; z-index:15; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:11px; padding:20px; box-sizing:border-box; border:2px dashed #e46b8b; border-radius:14px; background:linear-gradient(135deg,#2c1928fa,#1b121efa); box-shadow:0 12px 45px #0005,inset 0 0 45px #ed4e7910; backdrop-filter:blur(10px); pointer-events:none; opacity:0; visibility:hidden; transform:translateY(5px) scale(.99); transition:opacity .14s ease,visibility .14s ease,transform .14s ease,border-color .14s ease; text-align:center; }
+.file-drop-zone.is-visible { opacity:1; visibility:visible; transform:translateY(0) scale(1); }
+.file-drop-symbol { width:58px; height:58px; border-radius:14px; display:grid; place-items:center; color:#ffa0ba; background:#ee5c8120; border:1px solid #f084a244; transition:transform .14s ease; }
+.file-drop-symbol svg { width:33px; height:33px; stroke-width:1.6; }
+.file-drop-zone strong { color:#ffe3ed; font-size:17px; font-weight:600; line-height:1.4; }
+.file-drop-zone > span { color:#d8bdce; font-size:12px; line-height:1.7; max-width:700px; }
+.file-drop-zone.is-over { border-style:solid; border-color:#ff9eb7; box-shadow:0 12px 45px #0005,0 0 0 4px #ee5c8118; }
+.file-drop-zone.is-over .file-drop-symbol { transform:scale(1.07); }
+.file-drop-zone.is-blocked { border-color:#c79864; }
+.file-drop-zone.is-blocked > span { color:#edcea3; }
+html[data-theme="light"] .file-drop-zone { background:linear-gradient(135deg,#fff9fcfa,#f6e8f4fa); border-color:#b93259; box-shadow:0 12px 45px #61264522,inset 0 0 40px #d8457610; }
+html[data-theme="light"] .file-drop-symbol { color:#ad244b; background:#f7dbe8; border-color:#d693ae; }
+html[data-theme="light"] .file-drop-zone strong { color:#782343; }
+html[data-theme="light"] .file-drop-zone > span { color:#68455f; }
+html[data-theme="light"] .file-drop-zone.is-over { border-color:#a32047; box-shadow:0 12px 45px #61264522,0 0 0 4px #c3376614; }
+html[data-theme="light"] .file-drop-zone.is-blocked { border-color:#9d6b28; }
+html[data-theme="light"] .file-drop-zone.is-blocked > span { color:#795323; }

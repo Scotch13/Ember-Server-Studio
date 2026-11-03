@@ -1,0 +1,36 @@
+{
+  "name": "ember-server-studio",
+  "version": "1.0.0",
+  "description": "A local-first Minecraft Java server manager for Windows with mods, backups and personal VPS tunnels.",
+  "private": true,
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Scotch13/Ember-Server-Studio.git"
+  },
+  "homepage": "https://github.com/Scotch13/Ember-Server-Studio#readme",
+  "bugs": {
+    "url": "https://github.com/Scotch13/Ember-Server-Studio/issues"
+  },
+  "main": "main.js",
+  "author": "Ember Studio",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "prepare-assets": "node tools/prepare-assets.js",
+    "prepackage": "node tools/prepare-assets.js",
+    "test": "node --test tests/*.test.js",
+    "package": "electron-packager . \"Ember Server Studio\" --platform=win32 --arch=x64 --out=../App --overwrite --asar.unpack=**/*.exe --ignore=tests --ignore=tools --ignore=README.md --icon=assets/ember.ico"
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.3.0",
+    "electron": "^42.0.0",
+    "playwright": "^1.64.1"
+  },
+  "dependencies": {
+    "yauzl": "^3.4.0",
+    "yazl": "^3.3.1"
+  }
+}

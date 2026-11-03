@@ -60,6 +60,8 @@ test('Import copies a stopped server without modifying the source and export exc
 });
 test('Import rejects linked directories and managed sources; export blocks running servers',async()=>{
   await assert.rejects(workspace.inspectImport(manager.dir(id)),/esterna/);
+  const managedRoot=manager.root,alias=path.join(root,'managed-alias');await fs.symlink(managedRoot,alias,'junction');
+  try{manager.root=alias;await assert.rejects(workspace.inspectImport(path.join(managedRoot,'servers',id)),/esterna/);}finally{manager.root=managedRoot;}
   const source=path.join(root,'source');await fs.mkdir(source);await fs.writeFile(path.join(source,'server.jar'),'launcher');await fs.writeFile(path.join(source,'server.properties'),'server-port=29933');await fs.symlink(root,path.join(source,'mods'),'junction');
   const plan=await workspace.inspectImport(source);await assert.rejects(workspace.importServer(plan.token,{...manager.get(id),name:'Bad import',port:29933,launcher:'server.jar',eula:true,stopped:true}),/collegamenti/);assert.equal(manager.servers.length,1);
   manager.runtime.set(id,{});await assert.rejects(workspace.exportServer(id,path.join(root,'server.zip')),/Arresta/);
